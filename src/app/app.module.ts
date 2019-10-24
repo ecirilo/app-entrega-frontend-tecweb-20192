@@ -6,16 +6,23 @@ import { AppComponent } from './app.component';
 
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+import { ViagemComponent } from './viagem/viagem.component';
+import { EnvioComponent } from './envio/envio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViagemComponent,
+    EnvioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

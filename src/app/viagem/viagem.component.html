@@ -1,0 +1,15 @@
+<clr-datagrid>
+    <clr-dg-column>Viagem ID</clr-dg-column>
+    <clr-dg-column>Oriegm</clr-dg-column>
+    <clr-dg-column>Destino</clr-dg-column>
+    <clr-dg-column>Valor</clr-dg-column>
+
+    <clr-dg-row *ngFor="let viagem of viagens">
+        <clr-dg-cell>{{viagem.idviagem}}</clr-dg-cell>
+        <clr-dg-cell>{{viagem.origem}}</clr-dg-cell>
+        <clr-dg-cell>{{viagem.destino}}</clr-dg-cell>
+        <clr-dg-cell>R$ {{viagem.valor}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{viagens.length}} viagens</clr-dg-footer>
+</clr-datagrid>

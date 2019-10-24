@@ -7,7 +7,8 @@
         </a>
     </div>
     <div class="header-nav">
-      <a href="..." class="active nav-link nav-text">Viagens</a>      
+      <a routerLink="/viagens" routerLinkActive="active" class="nav-link nav-text">Viagens</a>
+      <a routerLink="/envios" routerLinkActive="active" class="nav-link nav-text">Envios</a>      
     </div>
     <div class="header-actions">
         <a href="..." class="nav-link nav-text">
@@ -17,18 +18,7 @@
   </header>
   <div class="content-container">
       <div class="content-area">
-        Content Area
-
-        Lorem ipsum dolor sit amet, 
-        
-        
-        consectetur adipiscing elit.
-        
-        
-        Quisque eu odio nisi. 
-        
-        
-        <p>Vestibulum dignissim eget massa sit amet feugiat. Quisque auctor mattis quam eu suscipit. Morbi ipsum risus, feugiat vitae sem at, tincidunt elementum magna. Phasellus tristique posuere dui, ut tempus felis sagittis quis. Integer iaculis ultrices elit, sed venenatis eros. Vivamus interdum semper velit eget gravida. Sed finibus eget lacus sed semper. Suspendisse fringilla, tellus in molestie cursus, sapien purus volutpat lacus, eget venenatis erat est vitae libero. Aliquam et orci hendrerit, consequat purus non, imperdiet ipsum. </p>
-      </div>      
+        <router-outlet></router-outlet>
+      </div>
   </div>
 </div>
