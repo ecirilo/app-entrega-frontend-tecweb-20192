@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnvioService } from '../envio.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-envio',
@@ -12,11 +14,11 @@ export class EnvioComponent implements OnInit {
   private novoEnvio: Envio;
   private envios: Envio[];
 
-  constructor() { }
+  constructor(private service: EnvioService) { }
 
   ngOnInit() {
     this.novoEnvio = new Envio();
-    this.envios = new Array<Envio>();
+    this.service.getEnvios().subscribe(envios => this.envios = envios);
   }
 
   adicionar() {
@@ -26,6 +28,7 @@ export class EnvioComponent implements OnInit {
   }
 
   cancelar() {
+    this.novoEnvio = new Envio();
     this.basic = false;
   }
 }

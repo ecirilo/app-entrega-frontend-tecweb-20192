@@ -24,7 +24,11 @@
         <form clrForm>
             <clr-textarea-container>
                 <label>Descrição</label>
-                <textarea clrTextarea [(ngModel)]="novoEnvio.descricao" name="descricao" placeholder="Descrição do evio contendo informações sobre o produto a ser transportado." required></textarea>
+                <textarea clrTextarea [(ngModel)]="novoEnvio.descricao" 
+                    name="descricao" 
+                    placeholder="Descrição do evio contendo informações sobre o produto a ser transportado." 
+                    required>
+                </textarea>
             </clr-textarea-container>                    
         </form>
     </div>

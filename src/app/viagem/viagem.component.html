@@ -1,3 +1,5 @@
+<button class="btn btn-outline" (click)="basic = true">Adicionar</button>
+
 <clr-datagrid>
     <clr-dg-column>Viagem ID</clr-dg-column>
     <clr-dg-column>Oriegm</clr-dg-column>
@@ -13,3 +15,27 @@
 
     <clr-dg-footer>{{viagens.length}} viagens</clr-dg-footer>
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="basic" [clrModalSize]="'md'">
+    <h3 class="modal-title">Adicionar Viagem</h3>
+    <div class="modal-body">
+        <form clrForm>
+            <clr-input-container>
+                <label>Origem</label>
+                <input clrInput placeholder="Origem" name="origem" [(ngModel)]="novaViagem.origem" />
+            </clr-input-container>
+            <clr-input-container>
+                <label>Destino</label>
+                <input clrInput placeholder="Destino" name="destino" [(ngModel)]="novaViagem.destino" />
+            </clr-input-container>
+            <clr-input-container>
+                <label>Valor</label>
+                <input clrInput placeholder="Valor" name="valor" [(ngModel)]="novaViagem.valor" />
+            </clr-input-container>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelar()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
+    </div>
+</clr-modal>

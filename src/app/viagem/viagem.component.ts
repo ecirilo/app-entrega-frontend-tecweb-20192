@@ -7,21 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViagemComponent implements OnInit {
 
-  private viagens = [{
-    idviagem: 0,
-    origem: "São João del-rei",
-    destino: "Belo Horizonte",
-    valor: 10.0
-  },{
-    idviagem: 1,
-    origem: "São João del-rei",
-    destino: "Rio de Janeiro",
-    valor: 30.0
-  }];
+  private basic: boolean;
+
+  private novaViagem: Viagem;
+  private viagens = new Array<Viagem>();
 
   constructor() { }
 
   ngOnInit() {
+    this.novaViagem = new Viagem();
   }
 
+  adicionar() {
+    this.viagens.push(this.novaViagem);
+    this.novaViagem = new Viagem();
+    this.basic = false;
+  }
+
+  cancelar() {
+    this.novaViagem = new Viagem();
+    this.basic = false;
+  }
+}
+
+export class Viagem {
+  origem: string;
+  destino: string;
+  valor: number;
+
+  constructor() {
+    this.destino = '';
+    this.origem = '';
+    this.valor = 0;
+  }
 }
