@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViagemService } from '../viagem.service';
 
 @Component({
   selector: 'app-viagem',
@@ -12,15 +13,20 @@ export class ViagemComponent implements OnInit {
   private novaViagem: Viagem;
   private viagens = new Array<Viagem>();
 
-  constructor() { }
+  constructor(private service: ViagemService) { }
 
   ngOnInit() {
     this.novaViagem = new Viagem();
+    this.service.getViagens().subscribe(viagens => this.viagens = viagens);
   }
 
   adicionar() {
-    this.viagens.push(this.novaViagem);
-    this.novaViagem = new Viagem();
+    this.service.salvar(this.novaViagem).subscribe(res => {
+      this.novaViagem.id = res.insertId;
+      this.viagens.push(this.novaViagem);
+    });    
+
+    this.novaViagem = new Viagem();    
     this.basic = false;
   }
 
@@ -31,6 +37,7 @@ export class ViagemComponent implements OnInit {
 }
 
 export class Viagem {
+  id: number;
   origem: string;
   destino: string;
   valor: number;

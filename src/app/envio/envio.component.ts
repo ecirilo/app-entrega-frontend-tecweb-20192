@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EnvioService } from '../envio.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-envio',
@@ -12,7 +11,7 @@ export class EnvioComponent implements OnInit {
   private basic: boolean;
 
   private novoEnvio: Envio;
-  private envios: Envio[];
+  private envios = new Array<Envio>();
 
   constructor(private service: EnvioService) { }
 
