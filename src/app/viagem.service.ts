@@ -18,8 +18,19 @@ export class ViagemService {
     return this.http.get<Viagem[]>("http://localhost:3000/viagens");
   }
 
-  salvar(viagem: Viagem): Observable<any> {
-    console.log(viagem);
+  getViagem(idviagem: number): Observable<Viagem> {
+    return this.http.get<Viagem>("http://localhost:3000/viagem/" + idviagem);
+  }
+
+  adicionar(viagem: Viagem): Observable<any> {
     return this.http.post("http://localhost:3000/viagem", viagem);
+  }
+
+  editar(viagem: Viagem): Observable<any> {
+    return this.http.put("http://localhost:3000/viagem/" + viagem.idviagem, viagem);
+  }
+
+  remover(idviagem: number): Observable<any> {
+    return this.http.delete("http://localhost:3000/viagem/" + idviagem);
   }
 }

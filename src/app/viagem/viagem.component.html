@@ -1,4 +1,4 @@
-<button class="btn btn-outline" (click)="basic = true">Adicionar</button>
+<button class="btn btn-outline" (click)="adicionar()">Adicionar</button>
 
 <clr-datagrid>
     <clr-dg-column>Viagem ID</clr-dg-column>
@@ -7,6 +7,11 @@
     <clr-dg-column>Valor</clr-dg-column>
 
     <clr-dg-row *ngFor="let viagem of viagens">
+        <clr-dg-action-overflow>
+            <button class="action-item" (click)="editar(viagem)">Editar</button>
+            <button class="action-item" (click)="remover(viagem)">Remover</button>
+        </clr-dg-action-overflow>
+
         <clr-dg-cell>{{viagem.idviagem}}</clr-dg-cell>
         <clr-dg-cell>{{viagem.origem}}</clr-dg-cell>
         <clr-dg-cell>{{viagem.destino}}</clr-dg-cell>
@@ -22,20 +27,20 @@
         <form clrForm>
             <clr-input-container>
                 <label>Origem</label>
-                <input clrInput placeholder="Origem" name="origem" [(ngModel)]="novaViagem.origem" />
+                <input clrInput placeholder="Origem" name="origem" [(ngModel)]="modalViagem.origem" />
             </clr-input-container>
             <clr-input-container>
                 <label>Destino</label>
-                <input clrInput placeholder="Destino" name="destino" [(ngModel)]="novaViagem.destino" />
+                <input clrInput placeholder="Destino" name="destino" [(ngModel)]="modalViagem.destino" />
             </clr-input-container>
             <clr-input-container>
                 <label>Valor</label>
-                <input clrInput placeholder="Valor" name="valor" [(ngModel)]="novaViagem.valor" />
+                <input clrInput placeholder="Valor" name="valor" [(ngModel)]="modalViagem.valor" />
             </clr-input-container>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="cancelar()">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
+        <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
     </div>
 </clr-modal>
