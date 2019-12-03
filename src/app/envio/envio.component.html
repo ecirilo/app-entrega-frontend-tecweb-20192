@@ -1,4 +1,4 @@
-<button class="btn btn-outline" (click)="basic = true">Adicionar</button>
+<button class="btn btn-outline" (click)="adicionar()">Adicionar</button>
 
 <clr-datagrid>
     <clr-dg-column>Envio ID</clr-dg-column>
@@ -6,6 +6,11 @@
     <clr-dg-column>Avaliação</clr-dg-column>
 
     <clr-dg-row *ngFor="let envio of envios">
+        <clr-dg-action-overflow>
+            <button class="action-item" (click)="editar(envio)">Editar</button>
+            <button class="action-item" (click)="remover(envio)">Remover</button>
+        </clr-dg-action-overflow>
+
         <clr-dg-cell>{{envio.idenvio}}</clr-dg-cell>
         <clr-dg-cell>{{envio.entregou}}</clr-dg-cell>
         <clr-dg-cell>{{envio.avaliacao}}</clr-dg-cell>
@@ -24,7 +29,7 @@
         <form clrForm>
             <clr-textarea-container>
                 <label>Descrição</label>
-                <textarea clrTextarea [(ngModel)]="novoEnvio.descricao" 
+                <textarea clrTextarea [(ngModel)]="modalEnvio.descricao" 
                     name="descricao" 
                     placeholder="Descrição do evio contendo informações sobre o produto a ser transportado." 
                     required>
@@ -34,6 +39,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="cancelar()">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
+        <button type="button" class="btn btn-primary" (click)="salvar()">Adicionar</button>
     </div>
 </clr-modal>

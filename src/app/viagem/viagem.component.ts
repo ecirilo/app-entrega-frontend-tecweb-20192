@@ -60,8 +60,7 @@ export class ViagemComponent implements OnInit {
   }
 
   cancelar() {
-    this.modalViagem = new Viagem();
-    this.basic = false;
+    this.fecharModal();
   }
 
   fecharModal() {

@@ -21,22 +21,26 @@
     <clr-dg-footer>{{viagens.length}} viagens</clr-dg-footer>
 </clr-datagrid>
 
-<clr-modal [(clrModalOpen)]="basic" [clrModalSize]="'md'">
+<clr-modal [(clrModalOpen)]="basic" [clrModalSize]="'xl'">
     <h3 class="modal-title">Adicionar Viagem</h3>
     <div class="modal-body">
-        <form clrForm>
+        <form clrForm clrLayout="vertical">
             <clr-input-container>
-                <label>Origem</label>
-                <input clrInput placeholder="Origem" name="origem" [(ngModel)]="modalViagem.origem" />
-            </clr-input-container>
-            <clr-input-container>
-                <label>Destino</label>
-                <input clrInput placeholder="Destino" name="destino" [(ngModel)]="modalViagem.destino" />
-            </clr-input-container>
-            <clr-input-container>
-                <label>Valor</label>
-                <input clrInput placeholder="Valor" name="valor" [(ngModel)]="modalViagem.valor" />
-            </clr-input-container>
+                        <label>Origem</label>
+                        <input clrInput placeholder="Origem" name="origem" [(ngModel)]="modalViagem.origem" style="width: 100%;"/>
+                    </clr-input-container>
+                    <clr-input-container>
+                        <label>Destino</label>
+                        <input clrInput placeholder="Destino" name="destino" [(ngModel)]="modalViagem.destino" />
+                    </clr-input-container>
+                        <clr-input-container>
+                            <label>Valor</label>
+                            <input clrInput placeholder="Valor" name="valor" [(ngModel)]="modalViagem.valor" />
+                        </clr-input-container>
+                        <clr-input-container>
+                            <label>Valor</label>
+                            <input clrInput placeholder="Valor" name="valor" [(ngModel)]="modalViagem.valor" />
+                        </clr-input-container>                 
         </form>
     </div>
     <div class="modal-footer">

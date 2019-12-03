@@ -11,12 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ViagemComponent } from './viagem/viagem.component';
 import { EnvioComponent } from './envio/envio.component';
+import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ViagemComponent,
-    EnvioComponent
+    EnvioComponent,
+    HomeComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,7 @@ import { EnvioComponent } from './envio/envio.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
